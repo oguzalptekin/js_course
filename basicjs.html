@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        console.log("Hello World!")
+        console.log("Hello me")
+        //inline comment
+        /*
+        multiple
+        line
+        comment
+        */
+
+        //undefined, null, boolean, string, symbol, number, object
+
+        var myName = "Oguz" //global scope
+        let lastName = "Alptekin" //local scope
+        const pi = 3.14 //constant, never change
+        var myStr = "This is \"double quote\" in quote"
+        var secStr = "This is 'double quoted' in quote" //much better and easy
+        /* 
+        \' single quote
+        \" double quote
+        \\ backslash(/)
+        \n newline
+        \r carriage return
+        \t tab
+        \b backspace
+        \f form feed
+        */
+        var conStr = "This" + "is concated"
+        conStr += "plus" 
+
+        var arr = ["Oguz", 24] //arrays could keep multiple variable type
+
+        function functName(name){
+            let word = "Hey " + name
+            return word
+        }
+        console.log(functName("Oguz"))
+
+        if(3 === 3){
+            console.log(true)
+        }
+        if(3 === '3'){ //not equal, !==
+            console.log(true)
+        }
+        if(3 == '3'){ //it is equal, !=
+            console.log("Equal")
+        }
+        //&& and || or
+
+        var answer = ""
+        switch(answer){
+            case 1: 
+                answer = "alpha"
+                break
+            case 2:
+                answer = "beta"
+                break
+            default:
+                answer = "sigma"
+                break
+        }
+
+        var dog = { //single object
+            "name":"Karabaş",
+            "legs":4,
+            "tails": 1,
+            "friends":["everything"]
+        }
+
+        function checkSign(num){
+            return num > 0 ? "positive" : "negative"
+        }
+
+        function checkSign(num){
+            return num > 0 ? "positive" : num < 0 ? "negative" : "zero" 
+        }
+
+        //var : you can create same name variable with var, global scope
+        //let: you cant create same name variable, block scope
+
+        let anonFunct = function(){
+            return new Date()
+        }
+
+        let anonFunct2 = () => new Date()
+
+        let myConcat = (arr1, arr2) => arr1.concat(arr2)
+
+        const squareList = (arr) => {
+            const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x*x)
+            return squaredIntegers
+        }
+        //you can assign default value as parameter
+
+        const sum = (function() {
+            return function sum (...args){ //rest
+                return args.reduce((a,b) => a+b, 0)
+            }
+        })()
+
+        console.log(sum(5,7,2,9,23,8))
+        console.log(sum(12,6))
+
+        const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY']
+        let arr2
+        (function(){
+            arr2 = [...arr1] //spread
+            arr1[0] = 'potato'
+        })()
+        //when you assign arrays each other, any changes one of them are affect both
+        //but when you use spread you only copy the values
+
+        console.log(arr2) 
+
+        let voxel = {x: 3.6, y: 7.4, z: 6.54}
+        const {x : a, y : b, z : c} = voxel //a = x, b = y, c = z it is called destructuring assignment
+        //you can use a a nested
+        //const {tomorrow : {max : maxTemp}} = forecast
+
+        const [q, p] = [1,2,3,4,5] //a = 1, b = 2
+        const [d, e, , , g] = [1,2,3,4,5] //d = 1, e = 2, g = 5
+
+        //const = [ , , ...arr] = list //assign array to another but without first 2 elements
+        
+        const stats = {
+            max : 70,
+            sd : 2,
+            median : 35,
+            mode: 24,
+            min : -12,
+            avg : 45
+        }
+
+        const half = function(){
+            return function half({max, min}){
+                return (max+min)/2.0 //stats.min, stats.max
+            }
+        }()
+
+        console.log(half(stats))
+
+        const person = {
+            name : "Oguz",
+            age : 23
+        }
+
+        const greeting = `Hello, I am ${person.name}!
+        I am ${person.age} years old.`
+
+        console.log(greeting)
+
+        const createPerson = (name, age, gender) => ({name, age, gender})
+
+        console.log(createPerson("Oguz", 23, "male"))
+
+        //when you want to use a variable(or funct etc) in another file you have to use 
+        //export keyword before the var which you want to use
+        //also you have to use import keyword in the file which you use the variable
+
+        //import { variable } from "./string" 
+        //import * as cap from "string"
+        //export const capitalized = str => str.toUpperCase()
+
+
+
+
+
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>
+
